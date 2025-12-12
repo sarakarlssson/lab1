@@ -10,6 +10,7 @@ app.get("/products", async (req, res) => {
         const sql = `SELECT * FROM products`
         const [rows, fields] = await db.execute(sql)
         res.json(rows);
+        console.log("funkar?")
 
     }
     catch (err) {
@@ -18,6 +19,23 @@ app.get("/products", async (req, res) => {
     }
 
 })
+
+app.get(`/products/:id`, async (req, res) => {
+
+    try {
+        const id = req.params.id;
+        const sql = `SELECT * FROM products WHERE productId = ?`
+        const [rows, field] = await db.execute(sql, [id])
+        res.json(rows)
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Internal Server Error", details: err.message });
+    }
+})
+
+
+
 
 app.listen(PORT, (err) => {
     if (err) {
