@@ -43,6 +43,13 @@ app.get('/products/:id/supplier', async (req, res) => {
     res.json(rows[0])
 })
 
+app.get('/products/:id/inventory', async (req, res) => {
+    const params = req.params.id
+    const sql = `SELECT p.productId,s.supplierId,p.quantity, p.lastUpdated FROM supplier s JOIN products p ON p.supplierId = s.supplierId WHERE p.productId = ?`
+    const [rows, field] = await db.execute(sql, [params])
+    res.json(rows[0])
+})
+
 
 
 
