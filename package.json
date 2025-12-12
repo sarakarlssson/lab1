@@ -1,0 +1,20 @@
+{
+  "name": "lab1",
+  "version": "1.0.0",
+  "description": "Lab 1 Project",
+  "homepage": "https://github.com/sarakarlssson/lab1#readme",
+  "bugs": {
+    "url": "https://github.com/sarakarlssson/lab1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarakarlssson/lab1.git"
+  },
+  "license": "ISC",
+  "author": "Sara",
+  "type": "commonjs",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
