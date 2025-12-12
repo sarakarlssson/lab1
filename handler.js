@@ -35,6 +35,15 @@ app.get(`/products/:id`, async (req, res) => {
 })
 
 
+app.get('/products/:id/supplier', async (req, res) => {
+
+    const id = req.params.id
+    const sql = 'SELECT s.supplierId, s.supplierName, s.contactInfo FROM supplier s JOIN products p ON p.supplierId = s.supplierId WHERE p.productId = ? '
+    const [rows, fields] = await db.execute(sql, [id])
+    res.json(rows[0])
+})
+
+
 
 
 app.listen(PORT, (err) => {
